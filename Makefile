@@ -8,7 +8,7 @@ Madlib.exe: Madlib.cs
 	mono Madlib.exe < $*.input > $*.output
 
 check-%: %.output
-	diff -qb $*.output $*.expected
+	diff -qb $*.output $*.expected || diff -y $*.output $*.expected 
 
 
 submit: check
