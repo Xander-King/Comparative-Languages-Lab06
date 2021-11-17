@@ -2,13 +2,13 @@
 check: check-Madlib1 check-Madlib2
 
 Madlib.exe: Madlib.cs
-	csc Madlib.cs
+	mcs Madlib.cs
 
 %.output: Madlib.exe
 	mono Madlib.exe < $*.input > $*.output
 
 check-%: %.output
-	cmp $*.output $*.expected
+	diff -qb $*.output $*.expected
 
 
 submit: check
@@ -22,3 +22,4 @@ update-ssh:
 	git pull git@gitlab.csi.miamioh.edu:CSE465/instructor/lab06.git
 
 update: update-http
+    

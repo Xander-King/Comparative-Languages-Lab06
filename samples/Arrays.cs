@@ -131,6 +131,9 @@ namespace Arrays {
         public static void Display(int a)
         {
             switch (a) {
+                case int x when (x > 15):
+                    Console.WriteLine("Using 'when'");
+                    break;
 				case 0: return;
                 case 1: Console.WriteLine("Uno");
                         break;
@@ -146,14 +149,15 @@ namespace Arrays {
                 case 9: Console.WriteLine("More than tres");
                         break;
 				case 10:goto case 9;
+              
                 default:Console.WriteLine("Big number");
                         break;
             }
         }
         public static void Main(string[] args)
         {
-			MatrixTester.TestMatrixMult();
-
+            Console.WriteLine(args);
+			//MatrixTester.TestMatrixMult();
 			for (int i=0; i<20; i++) {
 				Console.WriteLine("{0}", i);
 				Display(i);
